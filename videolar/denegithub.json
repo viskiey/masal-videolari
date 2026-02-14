@@ -1,0 +1,861 @@
+{
+  "name": "denegithub",
+  "nodes": [
+    {
+      "parameters": {
+        "functionCode": "// Prompt seç\n// Prompt seç - 100 FARKLI ÇOCUK MASALI PROMPT'U\nconst prompts = [\n  // HAYVAN MASALLARI (30 adet)\n  \"Bir zamanlar küçük bir ayı\",\n  \"Bir zamanlar sevimli bir tavşan\",\n  \"Bir zamanlar meraklı bir sincap\",\n  \"Bir zamanlar cesur bir kaplumbağa\",\n  \"Bir zamanlar şarkı söyleyen bir kuş\",\n  \"Bir zamanlar utangaç bir kirpi\",\n  \"Bir zamanlar oyunbaz bir kedi yavrusu\",\n  \"Bir zamanlar bilge bir baykuş\",\n  \"Bir zamanlar hızlı bir ceylan\",\n  \"Bir zamanlar renkli bir kelebek\",\n  \"Bir zamanlar güçlü bir aslan yavrusu\",\n  \"Bir zamanlar neşeli bir penguen\",\n  \"Bir zamanlar sihirli bir tilki\",\n  \"Bir zamanlar minik bir fare\",\n  \"Bir zamanlar parlak bir ateş böceği\",\n  \"Bir zamanlar yüzen bir balina\",\n  \"Bir zamanlar zıplayan bir kanguru\",\n  \"Bir zamanlar rengarenk bir papağan\",\n  \"Bir zamanlar yumuşak bir kuzu\",\n  \"Bir zamanlar yaramaz bir köpek yavrusu\",\n  \"Bir zamanlar büyük kulaklı bir fil\",\n  \"Bir zamanlar çizgili bir zebra\",\n  \"Bir zamanlar uzun boyunlu bir zürafa\",\n  \"Bir zamanlar tüylü bir baykuş\",\n  \"Bir zamanlar yüzen bir ördek\",\n  \"Bir zamanlar tırmanan bir maymun\",\n  \"Bir zamanlar yeraltında yaşayan bir köstebek\",\n  \"Bir zamanlar gölde yaşayan bir kurbağa\",\n  \"Bir zamanlar ormanda yaşayan bir geyik\",\n  \"Bir zamanlar karlı dağlarda yaşayan bir panda\",\n  \n  // FANTASTİK YARATIKLAR (25 adet)\n  \"Bir zamanlar küçük bir ejderha\",\n  \"Bir zamanlar şefkatli bir peri\",\n  \"Bir zamanlar konuşan bir ağaç\",\n  \"Bir zamanlar sihirli bir tek boynuzlu at\",\n  \"Bir zamanlar ışık saçan bir yıldız çocuğu\",\n  \"Bir zamanlar bulutlarda yaşayan bir dev\",\n  \"Bir zamanlar gökkuşağı renklerinde bir anka kuşu\",\n  \"Bir zamanlar denizlerin prensi bir deniz kızı\",\n  \"Bir zamanlar kristallerden oluşan bir yaratık\",\n  \"Bir zamanlar rüzgarla konuşan bir çocuk\",\n  \"Bir zamanlar ay ışığından doğan bir tilki\",\n  \"Bir zamanlar yağmur damlalarıyla oynayan bir cin\",\n  \"Bir zamanlar gecenin koruyucusu bir baykuş prenses\",\n  \"Bir zamanlar ormanın sihirli bekçisi\",\n  \"Bir zamanlar çiçeklerle konuşan bir kız\",\n  \"Bir zamanlar yıldız tozuyla beslenen bir kelebek\",\n  \"Bir zamanlar bulutlardan oyuncak yapan bir dev\",\n  \"Bir zamanlar güneş ışınlarını saklayan bir çocuk\",\n  \"Bir zamanlar mevsimleri değiştiren bir peri\",\n  \"Bir zamanlar hayvanlarla konuşabilen bir şaman\",\n  \"Bir zamanlar rüyaları yöneten bir ayıcık\",\n  \"Bir zamanlar renkleri icat eden bir ressam\",\n  \"Bir zamanlar müziği keşfeden bir kuş\",\n  \"Bir zamanlar dans eden ağaçların olduğu bir orman\",\n  \"Bir zamanlar şekerlemeden bir kale\",\n  \n  // MESAJ İÇEREN MASALLAR (20 adet)\n  \"Bir zamanlar paylaşmayı seven bir çocuk\",\n  \"Bir zamanlar dürüstlüğü öğrenen bir sincap\",\n  \"Bir zamanlar sabrı keşfeden bir kaplumbağa\",\n  \"Bir zamanlar yardımlaşmanın gücünü gören bir ayı\",\n  \"Bir zamanlar özür dilemeyi öğrenen bir tavşan\",\n  \"Bir zamanlar korkularını yenmeye çalışan bir fare\",\n  \"Bir zamanlar arkadaşlığın değerini anlayan bir kurt\",\n  \"Bir zamanlar temizliği seven bir kirpi\",\n  \"Bir zamanlar kitap okumayı seven bir baykuş\",\n  \"Bir zamanlar hayal kurmanın gücünü keşfeden bir çocuk\",\n  \"Bir zamanlar minnettarlığı öğrenen bir kuş\",\n  \"Bir zamanlar empati kuran bir fil\",\n  \"Bir zamanlar farklılıkları kucaklayan bir zürafa\",\n  \"Bir zamanlar sorumluluk alan bir köpek\",\n  \"Bir zamanlar çevreyi koruyan bir sincap\",\n  \"Bir zamanlar enerjisini iyi kullanan bir maymun\",\n  \"Bir zamanlar duygularını ifade eden bir ayıcık\",\n  \"Bir zamanlar problem çözmeyi seven bir kunduz\",\n  \"Bir zamanlar takım çalışmasını öğrenen bir karınca\",\n  \"Bir zamanlar azmin gücünü gösteren bir örümcek\",\n  \n  // MACERA DOLU MASALLAR (15 adet)\n  \"Bir zamanlar hazine arayan bir korsan çocuk\",\n  \"Bir zamanlar uzayı keşfeden bir astronot ayı\",\n  \"Bir zamanlar zaman yolculuğu yapan bir saat\",\n  \"Bir zamanlar kayıp şehri bulan bir kaşif\",\n  \"Bir zamanlar gizemli bir haritayı çözen bir çocuk\",\n  \"Bir zamanlar volkanın tepesine tırmanan bir dağcı\",\n  \"Bir zamanlar okyanusun derinliklerini keşfeden bir denizaltı\",\n  \"Bir zamanlar mağaralarda hazine arayan bir yarasa\",\n  \"Bir zamanlar bulutların üstünde yaşayan bir pilot\",\n  \"Bir zamanlar yağmur ormanlarını gezen bir gezgin\",\n  \"Bir zamanlar kutupları keşfeden bir penguen\",\n  \"Bir zamanlar çölde vaha arayan bir deve\",\n  \"Bir zamanlar nehirler boyunca yolculuk yapan bir sal\",\n  \"Bir zamanlar yeraltı tünellerini keşfeden bir köstebek\",\n  \"Bir zamanlar dağlarda kayıp bir köy bulan bir dağ keçisi\",\n  \n  // SEVGİ VE DUYGU MASALLARI (10 adet)\n  \"Bir zamanlar sevgiyi yaymaya çalışan bir kalp\",\n  \"Bir zamanlar mutluluğu arayan bir güneş ışını\",\n  \"Bir zamanlar neşeyi çoğaltan bir gökkuşağı\",\n  \"Bir zamanlar barışı sağlayan bir güvercin\",\n  \"Bir zamanlar umudu temsil eden bir yıldız\",\n  \"Bir zamanlar arkadaşlığı bulan bir yalnız çocuk\",\n  \"Bir zamanlar aile bağlarını güçlendiren bir yuva\",\n  \"Bir zamanlar güveni kazanan bir kurt\",\n  \"Bir zamanlar affetmeyi öğrenen bir aslan\",\n  \"Bir zamanlar minnettarlık duyan bir çiçek\"\n];\nconst prompt = prompts[Math.floor(Math.random() * prompts.length)];\n\nconsole.log(`🎯 Prompt: ${prompt}`);\n\nreturn [{\n  json: {\n    prompt: prompt,\n    text: \"\",\n    start_time: Date.now(),\n    check_count: 0\n  }\n}];"
+      },
+      "id": "cdc45b02-4d77-428f-9215-2aef553cb322",
+      "name": "📝 Prompt Seç",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -3840,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://simple-colab-proxy-production.up.railway.app/generate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"prompt\": \"{{$json.prompt}}\",\n  \"text\": \"{{$json.text}}\"\n}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          },
+          "timeout": 30000
+        }
+      },
+      "id": "3c1003ad-2682-4d07-b2d8-3465176cd5af",
+      "name": "🌐 Colab'a Gönder",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        -3616,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Job ID'yi AL ve SAKLA\nconst response = $input.all()[0].json;\nconsole.log('📥 Colab yanıtı:', JSON.stringify(response, null, 2));\n\nlet jobId = response?.job_id || 'job_' + Date.now();\n\nconsole.log(`✅ Job ID: ${jobId}`);\n\nreturn [{\n  json: {\n    ...$json,\n    job_id: jobId,\n    final_job_id: jobId,\n    current_status: 'processing',\n    last_check: Date.now()\n  }\n}];"
+      },
+      "id": "f732ce6c-bc79-408c-9e02-a0377d00f017",
+      "name": "🔐 Job ID Al ve Sakla",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -2944,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const jobData = $json;\nconst checkNum = jobData.check_count + 1;\nconsole.log(`\\n🔄 DÖNGÜ #${checkNum} - Job: ${jobData.job_id}`);\nconsole.log(`   Kontrol: ${checkNum}/40`);\nreturn [{\n  json: {\n    ...jobData,\n    check_count: checkNum\n  }\n}];"
+      },
+      "id": "aa51dbfe-20b2-4cc9-90cc-b095aa66d878",
+      "name": "🔄 Döngü Kontrol",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -2720,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "id": "7f8da718-e2ad-4f81-acad-1af0336fae91",
+      "name": "⏳ 30sn Bekle",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        -2496,
+        -48
+      ],
+      "webhookId": "bc8166bd-9f8f-4d2b-968d-5e924a728ef4"
+    },
+    {
+      "parameters": {
+        "functionCode": "const jobData = $json;\nconsole.log(`📡 Status kontrol: ${jobData.job_id}`);\nreturn [{ json: jobData }];"
+      },
+      "id": "10d9a33b-6137-4187-93d1-ac9291ccb85c",
+      "name": "🔍 Status Öncesi",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -2272,
+        -48
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ 'https://simple-colab-proxy-production.up.railway.app/status/' + $json.job_id }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "13167182-4534-4238-b402-1bb00130513b",
+      "name": "🌐 Status Kontrol",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        -2048,
+        -48
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// \"🧠 Status Analiz\" node'unun TAMAMI - DÜZELTİLDİ!\nconst statusResponse = $input.all()[0].json;\nconst jobData = $json;\n\nconsole.log(`\\n📊 STATUS ANALİZ #${jobData.check_count}`);\nconsole.log(`   Job: ${jobData.job_id}`);\n\nconst status = statusResponse?.status || 'unknown';\n\n// 1. VİDEO HAZIR MI?\nif (status === 'completed') {\n  console.log('✅✅✅ VİDEO HAZIR!');\n  \n  // ⭐⭐⭐ BURAYI DÜZENLEDİM - title, tags, description EKLEDİM! ⭐⭐⭐\n  return [{\n    json: {\n      success: true,\n      video_ready: true,\n      colab_result: statusResponse,\n      drive_path: statusResponse.result?.drive_info?.video_path,\n      continue_loop: false,\n      final_message: '✅ Video hazır!',\n      has_youtube_info: !!statusResponse.result?.youtube_info,\n      \n      // YouTube metadata - DOĞRUDAN statusResponse'dan!\n      youtube_title: statusResponse.result?.youtube_info?.title,\n      title: statusResponse.result?.youtube_info?.title,           // ✅ EKLENDİ!\n      tags: statusResponse.result?.youtube_info?.tags,            // ✅ EKLENDİ!\n      description: statusResponse.result?.youtube_info?.description, // ✅ EKLENDİ!\n      category: statusResponse.result?.youtube_info?.category || \"22\", // ✅ EKLENDİ!\n      \n      // Linkler\n      json_link: statusResponse.result?.youtube_info?.json_download_link,\n      video_link: statusResponse.result?.youtube_info?.drive_download_link\n    }\n  }];\n}\n\n// 2. HATA MI? (DEĞİŞİKLİK YOK)\nif (status === 'failed' || statusResponse?.error) {\n  console.log('❌ HATA:', statusResponse?.error);\n  return [{\n    json: {\n      success: false,\n      error: statusResponse?.error || 'Hata',\n      continue_loop: false\n    }\n  }];\n}\n\n// 3. ZAMAN AŞIMI MI? (DEĞİŞİKLİK YOK)\nconst elapsed = (Date.now() - jobData.start_time) / 1000 / 60;\nif (elapsed > 20) {\n  console.log('⏰ Zaman aşımı (20 dakika)');\n  return [{\n    json: {\n      success: false,\n      error: '20 dakika geçti',\n      continue_loop: false\n    }\n  }];\n}\n\n// 4. MAKSIMUM KONTROL SAYISI? (DEĞİŞİKLİK YOK)\nif (jobData.check_count >= jobData.max_checks) {\n  console.log('🛑 Maksimum kontrol (40 kez)');\n  return [{\n    json: {\n      success: false,\n      error: '40 kontrol yapıldı',\n      continue_loop: false\n    }\n  }];\n}\n\n// 5. DEVAM EDİYOR (DEĞİŞİKLİK YOK)\nconsole.log(`⏳ Devam ediyor...`);\nreturn [{\n  json: {\n    ...jobData,\n    current_status: status,\n    continue_loop: true\n  }\n}];"
+      },
+      "id": "a4ae16de-d0ec-408b-9505-d36ebe425de6",
+      "name": "🧠 Status Analiz",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -1824,
+        -48
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "b0c1d627-47fd-4bba-b7ce-798280025e7f",
+              "leftValue": "={{$json.continue_loop}}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "looseTypeValidation": true
+        }
+      },
+      "id": "d97fd629-936c-402e-b287-e65a3eb1de83",
+      "name": "↪️ Devam?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -1600,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// ✅ Video Hazır! - DÜZELTİLMİŞ\nconst inputData = $input.first().json;\n\nconsole.log('🎬 VIDEO HAZIR! Döngü durdu.');\nconsole.log('Drive path:', inputData.drive_path);\n\nreturn [{ json: inputData }];"
+      },
+      "id": "f7482a78-58e1-40bf-8f27-9af3e150f83e",
+      "name": "✅ Video Hazır!",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -1376,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// GET LINKS - YouTube için - DÜZELTİLDİ!\nconst input = $input.first().json;\n\nconsole.log('🔗 YouTube için linkleri hazırlıyorum...');\nconsole.log('✅ Gelen başlık:', input.title || input.youtube_title);\nconsole.log('✅ Gelen video_link:', input.video_link);\nconsole.log('✅ Gelen tags:', input.tags ? input.tags.length + ' adet' : 'YOK');\n\nif (!input.video_link || !input.json_link) {\n  throw new Error(`Link eksik! Video: ${input.video_link}, JSON: ${input.json_link}`);\n}\n\nreturn [{\n  json: {\n    // Linkler\n    json_download_url: input.json_link,\n    video_download_url: input.video_link,\n    \n    // ⭐⭐⭐ DOĞRUDAN Status Analiz'den GELEN VERİLER ⭐⭐⭐\n    title: input.title || input.youtube_title || \"Masal Videosu\",\n    description: input.description || \"Çocuklar için eğlenceli ve öğretici masal\",\n    tags: input.tags || [\"çocuk masalı\", \"masal\", \"hikaye\"],\n    category: input.category || \"22\",\n    \n    // Original data\n    original_data: input,\n    message: \"🚀 YouTube'a yüklenmeye hazır!\",\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "36a84043-ace2-433b-9d91-0419bb1f97cf",
+      "name": "JSON Metadata Al",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -1152,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// 📦 YouTube metadata hazırla - 4 kanal için!\nconst inputData = $input.all()[0].json;\n\nconsole.log('📦 YouTube metadata hazırlanıyor...');\nconsole.log('✅ Başlık:', inputData.title);\nconsole.log('✅ Video URL:', inputData.video_download_url);\n\nif (!inputData.video_download_url) {\n    throw new Error('❌ video_download_url bulunamadı!');\n}\n\nconst videoMetadata = {\n    video_download_url: inputData.video_download_url,\n    title: inputData.title || \"Masal Videosu\",\n    description: inputData.description || \"Çocuklar için eğlenceli ve öğretici masal\",\n    tags: inputData.tags || [\"çocuk masalı\", \"masal\", \"hikaye\"],\n    categoryId: inputData.category || \"22\",\n    privacyStatus: \"public\",\n    job_id: inputData.job_id || Date.now().toString(),\n    prompt: inputData.prompt\n};\n\nconsole.log('🎬 Video hazır, 4 kanala yüklenecek!');\nconsole.log('   📌', videoMetadata.title);\n\nreturn [{ json: videoMetadata }];"
+      },
+      "id": "3dec95aa-0628-405e-9dc3-55b5e8b08923",
+      "name": "YouTube Verileri Hazırla",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -928,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "b0c1d627-47fd-4bba-b7ce-798280025e7f",
+              "leftValue": "={{$json.continue_loop}}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "looseTypeValidation": true
+        }
+      },
+      "id": "e2b824be-d7ad-4599-8550-c681423704d6",
+      "name": "↪️ Devam?1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -3168,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// 🔄 Hata Kontrol - SAKİN! Sayaçla işin yok!\nconst response = $input.first().json;\nconst isError = response.error || response.status === 'error' || !response.job_id;\n\nif (isError) {\n  console.log('❌ Hata oluştu! Tekrar dene...');\n  return [{\n    json: {\n      continue_loop: true,  // TRUE → Döngüye gir!\n      error: response.error || 'Bilinmeyen hata',\n      prompt: $json.prompt,\n      text: $json.text,\n      start_time: $json.start_time,\n      check_count: $json.check_count || 0\n      // 🚫 SAKIN! video_counter burada YOK!\n      // 🚫 SAKIN! $getWorkflowStaticData burada YOK!\n    }\n  }];\n} else {\n  console.log('✅ Başarılı! Job ID alınıyor...');\n  return [{\n    json: {\n      ...response,\n      continue_loop: false,\n      prompt: $json.prompt,\n      text: $json.text,\n      start_time: $json.start_time,\n      check_count: $json.check_count || 0\n    }\n  }];\n}"
+      },
+      "id": "f4654dc0-114f-4511-a854-8d32be2a92a0",
+      "name": "🔄 Hata Kontrol",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -3392,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// 🔢 Sayaç Başlat ve KONTROL ET!\nconst executionData = $getWorkflowStaticData('global');\nexecutionData.counter = executionData.counter || 0;\n\nconst maxVideos = 1; // 1 video sonra dursun\n\nconsole.log(`=================================`);\nconsole.log(`🎬 VİDEO #${executionData.counter + 1}/${maxVideos} ÜRETİLİYOR...`);\nconsole.log(`=================================`);\n\n// Eğer maxVideos'a ulaştıysak DUR!\nif (executionData.counter >= maxVideos) {\n    console.log(`🎉🎉🎉 ${maxVideos} VİDEO TAMAMLANDI! WORKFLOW DURUYOR. 🎉🎉🎉`);\n    return []; // Boş döndür, workflow dursun\n}\n\n// Normal video üretimine devam\nreturn [{\n    json: {\n        ...$json,\n        video_counter: executionData.counter,\n        max_videos: maxVideos,\n        is_new_video: true\n    }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4064,
+        112
+      ],
+      "id": "e99c091c-b0e2-4da0-9465-e30c57f2d187",
+      "name": "Ana Video Döngüsü"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -4288,
+        16
+      ],
+      "id": "1ac12c7b-a859-4712-9219-32b963a3c4b8",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 📋 MERGE'den GELEN VERİYİ İŞLE\nconst mergedData = $input.first().json;\n\nconsole.log('🔍 MERGE\\'den gelen veri:', mergedData);\n\n// uploadId_1, uploadId_2, uploadId_3, uploadId_4'ten verileri al\nconst uploadResults = [];\n\nfor (let i = 1; i <= 2; i++) {\n    const uploadId = mergedData[`uploadId_${i}`];\n    \n    if (uploadId) {\n        const videoUrl = `https://www.youtube.com/watch?v=${uploadId}`;\n        \n        uploadResults.push({\n            uploadId: uploadId,\n            url: videoUrl,\n            channel: i,\n            success: true\n        });\n        \n        console.log(`✅ Kanal ${i} yüklendi: ${videoUrl}`);\n    }\n}\n\nconsole.log(`=================================`);\nconsole.log(`📊 ${uploadResults.length}/2 Kanal Yükleme Tamamlandı`);\nconsole.log(`=================================`);\n\n// Tüm kanallar başarılı mı?\nif (uploadResults.length === 2) {\n    console.log('🎉🎉🎉 2 KANALA DA YÜKLEME BAŞARILI! 🎉🎉🎉');\n    \n    // SAYACI BURADA ARTIR!\n    const executionData = $getWorkflowStaticData('global');\n    executionData.counter = (executionData.counter || 0) + 1;\n    \n    console.log(`🎬 TOPLAM ${executionData.counter} VİDEO TAMAMLANDI`);\n    console.log(`=================================`);\n    \n    // Max video kontrolü için counter'ı da gönder\n    return [{\n        json: {\n            success: true,\n            video_counter: executionData.counter,\n            upload_results: uploadResults,\n            video_links: uploadResults.map(r => r.url),\n            max_videos: 1\n        }\n    }];\n} else {\n    throw new Error(`❌ Hata! Sadece ${uploadResults.length}/2 kanal yüklendi!`);\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -32,
+        32
+      ],
+      "id": "ca7f5153-07d0-43b4-97fc-a84135aa2859",
+      "name": "4 Kanal Kontrol"
+    },
+    {
+      "parameters": {
+        "url": "={{$json.video_download_url}}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          },
+          "timeout": 180000
+        }
+      },
+      "id": "4318e1f7-5fdd-4762-9485-1259cf29da45",
+      "name": "Videoyu İndir",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -704,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {
+          "clashHandling": {
+            "values": {
+              "resolveClash": "addSuffix"
+            }
+          },
+          "includeUnpaired": true
+        }
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -256,
+        32
+      ],
+      "id": "2eabea8e-c296-4178-96e8-312a74edfe2a",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 * * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -4288,
+        208
+      ],
+      "id": "33e098fd-470d-4ea1-b7a0-bf9566f7d381",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "155BxVIywJmTn_okRjTVqoxjf9XjyQJx4-WoVLf71M_A",
+          "mode": "list",
+          "cachedResultName": "n8n-youtube-1video-4kanal-linkler",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/155BxVIywJmTn_okRjTVqoxjf9XjyQJx4-WoVLf71M_A/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sayfa1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/155BxVIywJmTn_okRjTVqoxjf9XjyQJx4-WoVLf71M_A/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "link1": "={{$json.video_links[0]}}",
+            "link2": "={{$json.video_links[1]}}",
+            "link3": "={{$json.video_links[2]}}",
+            "link4": "={{$json.video_links[3]}}",
+            "video_no": "={{$json.video_counter}}",
+            "tarih": "={{$now}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "link1",
+              "displayName": "link1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "link2",
+              "displayName": "link2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "link3",
+              "displayName": "link3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "link4",
+              "displayName": "link4",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "video_no",
+              "displayName": "video_no",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tarih",
+              "displayName": "tarih",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        192,
+        208
+      ],
+      "id": "859d14d0-4784-4da2-8094-c8c1c2363d0f",
+      "name": "Google E-Tablo Yüklenen Video Linkleri1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "juJQnpZpSdl5PRMl",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{$json.title}}",
+        "regionCode": "TR",
+        "categoryId": "={{$json.categoryId}}",
+        "options": {
+          "defaultLanguage": "tr",
+          "description": "={{$json.description}}",
+          "embeddable": true,
+          "license": "youtube",
+          "notifySubscribers": true,
+          "privacyStatus": "public",
+          "selfDeclaredMadeForKids": true,
+          "tags": "={{$json.tags.join(',')}}"
+        }
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        -112
+      ],
+      "id": "43b7cdef-412b-422d-aae4-61451071d478",
+      "name": "viskiey Youtube Yükle",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "3EvU4DJwhTNabt8m",
+          "name": "viskiey"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "playlistItem",
+        "playlistId": "PLLGp8gSEVjhIKlMnwNAOO_QufZLFvEpN8",
+        "videoId": "={{$json.uploadId}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        -160
+      ],
+      "id": "ca03b6c7-4752-4ef1-88c1-891e49152cdd",
+      "name": "viskiey Playlist Yükle",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "3EvU4DJwhTNabt8m",
+          "name": "viskiey"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{$json.title}}",
+        "regionCode": "TR",
+        "categoryId": "={{$json.categoryId}}",
+        "options": {
+          "defaultLanguage": "tr",
+          "description": "={{$json.description}}",
+          "embeddable": true,
+          "license": "youtube",
+          "notifySubscribers": true,
+          "privacyStatus": "public",
+          "selfDeclaredMadeForKids": true,
+          "tags": "={{$json.tags.join(',')}}"
+        }
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        176
+      ],
+      "id": "a3f8a426-027e-4b54-b5d8-1e55bea7a4da",
+      "name": "viskiey Youtube Yükle1",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "3EvU4DJwhTNabt8m",
+          "name": "viskiey"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "playlistItem",
+        "playlistId": "PLLGp8gSEVjhIKlMnwNAOO_QufZLFvEpN8",
+        "videoId": "={{$json.uploadId}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        224
+      ],
+      "id": "645e8920-e4cb-4339-9ea2-bdddf6432bde",
+      "name": "viskiey Playlist Yükle1",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "3EvU4DJwhTNabt8m",
+          "name": "viskiey"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "📝 Prompt Seç": {
+      "main": [
+        [
+          {
+            "node": "🌐 Colab'a Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌐 Colab'a Gönder": {
+      "main": [
+        [
+          {
+            "node": "🔄 Hata Kontrol",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔐 Job ID Al ve Sakla": {
+      "main": [
+        [
+          {
+            "node": "🔄 Döngü Kontrol",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔄 Döngü Kontrol": {
+      "main": [
+        [
+          {
+            "node": "⏳ 30sn Bekle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⏳ 30sn Bekle": {
+      "main": [
+        [
+          {
+            "node": "🔍 Status Öncesi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔍 Status Öncesi": {
+      "main": [
+        [
+          {
+            "node": "🌐 Status Kontrol",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌐 Status Kontrol": {
+      "main": [
+        [
+          {
+            "node": "🧠 Status Analiz",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🧠 Status Analiz": {
+      "main": [
+        [
+          {
+            "node": "↪️ Devam?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "↪️ Devam?": {
+      "main": [
+        [
+          {
+            "node": "🔄 Döngü Kontrol",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "✅ Video Hazır!",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "✅ Video Hazır!": {
+      "main": [
+        [
+          {
+            "node": "JSON Metadata Al",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "JSON Metadata Al": {
+      "main": [
+        [
+          {
+            "node": "YouTube Verileri Hazırla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Verileri Hazırla": {
+      "main": [
+        [
+          {
+            "node": "Videoyu İndir",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "↪️ Devam?1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "🔐 Job ID Al ve Sakla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔄 Hata Kontrol": {
+      "main": [
+        [
+          {
+            "node": "↪️ Devam?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ana Video Döngüsü": {
+      "main": [
+        [
+          {
+            "node": "📝 Prompt Seç",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Ana Video Döngüsü",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4 Kanal Kontrol": {
+      "main": [
+        [
+          {
+            "node": "Google E-Tablo Yüklenen Video Linkleri1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Videoyu İndir": {
+      "main": [
+        [
+          {
+            "node": "viskiey Youtube Yükle",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "viskiey Youtube Yükle1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "4 Kanal Kontrol",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Ana Video Döngüsü",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google E-Tablo Yüklenen Video Linkleri1": {
+      "main": [
+        [
+          {
+            "node": "Ana Video Döngüsü",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "viskiey Youtube Yükle": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "viskiey Playlist Yükle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "viskiey Youtube Yükle1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "viskiey Playlist Yükle1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "cbe9e4f0-bd18-4b0b-b40a-6308aff6f930",
+  "meta": {
+    "instanceId": "e80b8d9f66d0ac426aa12f6ca290eb20f9bcca786e3038047fd57b21dfb6ed8e"
+  },
+  "id": "8LMftM0ABhu9rm_W4tGcJ",
+  "tags": []
+}
